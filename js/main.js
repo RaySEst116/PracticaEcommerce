@@ -72,16 +72,6 @@ const productos = [
         precio: 1000
     },
     {
-        id: "camiseta-02",
-        titulo: "Camiseta 02",
-        imagen: "/img/camisetas/02.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
         id: "camiseta-03",
         titulo: "Camiseta 03",
         imagen: "/img/camisetas/03.jpg",
@@ -125,6 +115,16 @@ const productos = [
         id: "camiseta-07",
         titulo: "Camiseta 07",
         imagen: "/img/camisetas/07.jpg",
+        categoria: {
+            nombre: "Camisetas",
+            id: "camisetas"
+        },
+        precio: 1000
+    },
+    {
+        id: "camiseta-08",
+        titulo: "Camiseta 08",
+        imagen: "/img/camisetas/08.jpg",
         categoria: {
             nombre: "Camisetas",
             id: "camisetas"
@@ -183,3 +183,49 @@ const productos = [
         precio: 1000
     }
 ]
+
+const contenedorProductos = document.querySelector("#contenedor_productos");
+const botonesCategorias = document.querySelectorAll("#boton_categoria");
+const tituloPrincipal =document.querySelector("#titulo_principal");
+
+function cargarProdutos(productosElegidos) {
+    contenedorProductos.innerHTML = "";
+
+    productos.forEach(producto => {
+        const div = document.createElement("div");
+        div.classList.add("producto");
+        div.innerHTML = `
+            <div class="producto">
+                <img class="producto_imagen" src="${producto.imagen}" alt="${producto.titulo}">
+                <div class="producto_detalles">
+                    <h3 class="titulo">${producto.titulo}</h3>
+                    <p class="producto_precio">${producto.precio}</p>
+                    <button class="producto_agregar" id="${producto.id}">Agregar</button>
+                </div>
+            </div>
+        `
+
+        contenedorProductos.append(div);
+    })
+}
+
+cargarProdutos(productos);
+
+botonesCategorias.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+        botonesCategorias.forEach(boton => boton.classList.remove("active"));
+        e.currentTarget.classList.add("active");
+
+        if (e.currentTarget.id != "todos") {
+            const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id);
+            tituloPrincipal.innerText = "Todos los productos";
+
+            const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+            cargarProdutos(productosBoton);
+        }
+        else {
+            tituloPrincipal.innerText = "Todos los productos";
+            cargarProdutos(productos);
+        }
+    })
+})
