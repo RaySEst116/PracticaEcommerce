@@ -120,10 +120,6 @@ aside {
     border-radius: .25rem;
 }
 
-.boton_carrito.active .numerito {
-    background-color: var(--clr-main);
-    color: var(--clr-white);
-}
 /** fin botones aside **/
 
 .texto_footer {
