@@ -240,7 +240,17 @@ function actualizarBotonesAgregar() {
     });
 }
 
-const productosEnCarrito = [];
+let productosEnCarrito;
+let productosEnCarritoLS = localStorage.getItem("productos_en_carrito");
+
+if (productosEnCarritoLS) {
+    productosEnCarrito = JSON.parse(productosEnCarritoLS);
+    actualizarNumerito();
+    productosEnCarrito = productosEnCarritoLS;
+}
+else {
+    productosEnCarrito = [];
+}
 
 function agregarAlCarrito() {
     const idBoton = e.currentTarget.id;

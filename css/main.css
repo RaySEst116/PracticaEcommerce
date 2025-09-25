@@ -280,7 +280,7 @@ main {
     border-bottom-right-radius: 1rem;
 }
 
-.disable {
+.disabled {
     display: none;
 }
 /** Fin Carrito **/
