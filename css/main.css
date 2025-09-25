@@ -280,11 +280,84 @@ main {
     border-bottom-right-radius: 1rem;
 }
 
+.header_mobile {
+    display: none;
+}
+
 .disabled {
     display: none;
 }
 /** Fin Carrito **/
 
-/** Media Queries **/
+.close_menu {
+    display: none;
+}
 
+/** Media Queries **/
+@media screen and (max-width: 600px) {
+    .wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside {
+        position: fixed;
+        z-index: 9;
+        background-color: var(--clr-main);
+        left: 0;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .75);
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .aside_visible {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .boton_menu.active::before,
+    .boton_menu.active::after {
+        display: none;
+    }
+
+    main {
+        margin: 1rem;
+        margin-top: 0;
+        padding: 3rem;
+    }
+
+    .contenedor_productos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .header_mobile {
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header_mobile .logo {
+        color: var(--clr-gray);
+    }
+
+    .open_menu,
+    .close_menu {
+        background-color: transparent;
+        color: var(--clr-gray);
+        border: 0;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .close_menu {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+}
 /** Fin MQ **/
