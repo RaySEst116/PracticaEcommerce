@@ -1,4 +1,4 @@
-let productosEnCarrito = localStorage.getItem("productos_en_carrito");
+ let productosEnCarrito = localStorage.getItem("productos_en_carrito");
 productosEnCarrito = JSON.parse(productosEnCarrito);
 
 const contenedorCarritoVacio = document.querySelector("#carrito_vacio");
@@ -43,7 +43,7 @@ function cargarProductosCarrito() {
                     <small>Subtotal</small>
                     <p>$${producto.precio * producto.cantidad}</p>
                 </div>
-                <button class="carrito_producto_eliminar" id="${producto.id}"><i class="bi bi_trash_fill"></i></button>
+                <button class="carrito_producto_eliminar" id="${producto.id}"><i class="bi bi-trash-fill"></i></button>
             `;
     
             contenedorCarritoProductos.append(div);
