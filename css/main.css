@@ -104,8 +104,8 @@ aside {
     box-shadow: 0 -1rem 0 var(--clr-white);
 }
 
-.boton_menu > i.bi_hand_index_thumb_fill,
-.boton_menu > i.bi_hand_index_thumb {
+.boton_menu > i.bi-hand-index-thumb-fill,
+.boton_menu > i.bi-hand-index-thumb {
     transform: rotateZ(90deg);
 }
 
